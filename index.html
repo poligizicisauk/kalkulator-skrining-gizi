@@ -134,10 +134,10 @@ button:hover {
     margin: 5px 0;
 }
 
-/* Warna Teks Berdasarkan Kategori Standar Kemenkes */
-.status-normal { color: #2f855a; }
-.status-warning { color: #c05621; }
+/* Identifikasi Warna Status */
 .status-danger { color: #9b2c2c; }
+.status-warning { color: #c05621; }
+.status-normal { color: #2f855a; }
 
 .interpretation {
     font-size: 13.5px;
@@ -157,14 +157,14 @@ button:hover {
     background: #2d3748;
 }
 
-/* Pengaturan Cetak Media PDF */
+/* STRATEGI CETAK PDF (Hanya menampilkan Lembar Hasil saat diprint) */
 @media print {
-    body { background: white; padding: 0; }
+    body { background: white; padding: 0; margin: 0; }
     .container { box-shadow: none; max-width: 100%; padding: 0; margin: 0; }
     form, button, h1, .subtitle { display: none !important; }
-    .result { border: none; padding: 0; background: white; }
-    .meta-info { background: #eee !important; border: 1px solid #ccc; }
-    .indicator-card { border: 1px solid #ccc; page-break-inside: avoid; }
+    .result { border: none; padding: 0; background: white; display: block !important; }
+    .meta-info { background: #edf2f7 !important; border: 1px solid #cbd5e0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .indicator-card { border: 1px solid #cbd5e0; page-break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 </style>
 </head>
@@ -347,7 +347,7 @@ function hitungSkrining() {
 
     const dbGender = DATA_ANTROPOMETRI[jk];
     
-    // Rumus IMT Utama
+    // Rumus IMT
     const tbMeter = tb / 100;
     const imt = bb / (tbMeter * tbMeter);
 
@@ -438,7 +438,7 @@ function hitungSkrining() {
     document.getElementById("statusIMTU").className = "status-val " + classGizi;
     document.getElementById("interIMTU").innerText = "Penilaian tren IMT/U menyokong kesimpulan tata laksana " + statusGizi.toLowerCase() + ".";
 
-    // Munculkan Kotak Hasil
+    // MENAMPILKAN KOTAK HASIL (Sehingga tombol PDF sekarang aktif & bisa ditekan)
     document.getElementById("hasil").style.display = "block";
     document.getElementById("hasil").scrollIntoView({ behavior: 'smooth' });
 }
