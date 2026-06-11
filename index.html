@@ -363,54 +363,54 @@ function hitungSkrining() {
     let statusBBU = "", classBBU = "", interBBU = "";
     if (zBBU < -3) {
         statusBBU = "Berat Badan Sangat Kurang (Severely Underweight)"; classBBU = "status-danger";
-        interBBU = "Juknis Kemenkes: Indikasi masalah nutrisi akut/kronis parah. Rekomendasi: Segera rujuk ke Puskesmas/Fasyankes terdekat untuk penanganan klinis tata laksana anak kurus.";
+        interBBU = "Mohon tidak menunda untuk membawa anak ke Puskesmas atau dokter spesialis anak. Kondisi ini memerlukan pemeriksaan medis segera dan pemberian makanan terapi khusus oleh tenaga gizi.";
     } else if (zBBU < -2) {
         statusBBU = "Berat Badan Kurang (Underweight)"; classBBU = "status-warning";
-        interBBU = "Juknis Kemenkes: Risiko malnutrisi. Rekomendasi: Evaluasi pola asuh & jadwal makan (Feeding Rules), pantau berat badan secara ketat di Posyandu setiap minggu.";
+        interBBU = "Perbaiki jadwal dan aturan makan anak (feeding rules). Pastikan anak makan 3 kali sehari ditambah makanan selingan kaya nutrisi. Jangan lupa untuk menimbang berat badannya secara ketat di Posyandu setiap minggu atau bulan.";
     } else if (zBBU <= 1) {
         statusBBU = "Berat Badan Normal"; classBBU = "status-normal";
-        interBBU = "Juknis Kemenkes: Pertumbuhan berat badan anak sesuai dengan rentang usianya. Rekomendasi: Pertahankan pemberian ASI serta MPASI bergizi seimbang.";
+        interBBU = "Pertahankan pola makan seimbang yang sudah diberikan. Tetap berikan makanan bergizi seimbang agar tren pertumbuhannya tetap baik.";
     } else {
         statusBBU = "Risiko Berat Badan Lebih"; classBBU = "status-warning";
-        interBBU = "Juknis Kemenkes: Anak cenderung memiliki berat berlebih. Rekomendasi: Diperlukan konfirmasi mendalam menggunakan indikator BB/TB atau IMT/U.";
+        interBBU = "Perlu diperiksa lebih lanjut apakah ini karena otot/tulangnya yang besar atau penumpukan lemak. Mulai batasi camilan yang terlalu manis atau instan, dan biarkan anak aktif bergerak.";
     }
 
     // 2. Evaluasi Status TB/U atau PB/U (Skrining Awal Stunting)
     let statusTBU = "", classTBU = "", interTBU = "";
     if (zTBU < -3) {
         statusTBU = "Sangat Pendek (Severely Stunted)"; classTBU = "status-danger";
-        interTBU = "Juknis Tatalaksana Stunting: Mengalami masalah kekurangan gizi kronis parah. Rekomendasi: Wajib dirujuk ke Rumah Sakit / Dokter Spesialis Anak untuk mencari penyebab biologis.";
+        interTBU = "Anak wajib dirujuk ke Rumah Sakit untuk diperiksa oleh Dokter Spesialis Anak. Jangan berkecil hati, dengan penanganan medis yang tepat, dokter akan mencari penyebabnya dan memberikan terapi gizi agar tinggi badan anak bisa mengejar ketertinggalannya.";
     } else if (zTBU < -2) {
         statusTBU = "Pendek (Stunted)"; classTBU = "status-warning";
-        interTBU = "Juknis Tatalaksana Stunting: Terindikasi stunting. Rekomendasi: Daftarkan anak ke program pemberian makanan tambahan lokal di Puskesmas dan tingkatkan asupan protein hewani.";
+        interTBU = "Segera konsultasikan ke Ahli Gizi di Puskesmas untuk masuk ke program intervensi gizi. Di rumah, fokuslah memberikan makanan yang tinggi protein hewani (seperti telur, ikan, ayam, atau daging) setiap hari, karena protein hewani sangat membantu pertumbuhan tulang anak.";
     } else if (zTBU <= 3) {
         statusTBU = "Normal"; classTBU = "status-normal";
-        interTBU = "Juknis Kemenkes: Panjang atau tinggi badan anak tumbuh optimal. Rekomendasi: Teruskan stimulasi motorik harian dan pantau berkala bulan depan.";
+        interTBU = "Selamat! Pertumbuhan tulang anak Anda sehat. Teruskan memberikan makanan bergizi seimbang, pastikan anak tidur cukup (karena hormon pertumbuhan bekerja saat tidur), dan ajak anak aktif bermain fisik.";
     } else {
         statusTBU = "Tinggi"; classTBU = "status-normal";
-        interTBU = "Juknis Kemenkes: Berperawakan tinggi (biasanya faktor genetik orang tua). Normal, kecuali jika lonjakan tinggi terjadi ekstrem di luar kurva (konsultasikan ke dokter jika ragu).";
+        interTBU = "Kondisi ini umumnya normal dan dipengaruhi oleh faktor genetik atau tinggi badan orang tua. Tetap pantau perkembangannya secara rutin di Posyandu.";
     }
 
     // 3 & 4. Evaluasi Status BB/TB & IMT/U (Tatalaksana Gizi Buruk/Lebih)
     let statusGizi = "", classGizi = "", interGizi = "";
     if (zIMTU < -3) {
         statusGizi = "Gizi Buruk (Severely Wasted)"; classGizi = "status-danger";
-        interGizi = "Juknis Anak Gizi Buruk: Kondisi darurat medis. Kriteria diagnosis gizi buruk menggunakan BB/PB atau BB/TB. Rekomendasi: Segera bawa ke Puskesmas/Rumah Sakit untuk masuk program rawat inap/jalan terapi pangan RUTF atau Formula F75/F100.";
+        interGizi = "Jangan panik, namun segera bawa anak ke Puskesmas atau Rumah Sakit hari ini juga. Anak membutuhkan penanganan khusus (seperti rawat inap gizi atau makanan formula terapi F75/F100/RUTF) karena daya tahan tubuhnya sedang sangat lemah.";
     } else if (zIMTU < -2) {
         statusGizi = "Gizi Kurang (Wasted)"; classGizi = "status-warning";
-        interGizi = "Juknis Kemenkes: Mengalami penurunan massa otot/lemak akut. Rekomendasi: Berikan makanan padat energi tinggi protein, berikan PMT Pemulihan selama 90 hari, dan obati penyakit penyerta jika ada.";
+        interGizi = "Segera periksa ke Poli Gizi Puskesmas untuk dilakukan pemeriksaan lebih lanjut. Anak juga masuk kategori untuk mendapatkan makanan tambahan (PMT) pemulihan yang padat energi dan protein (disediakan oleh Puskesmas selama 56 hari, sesuai dengan ketersediaan). Jangan tunda pemeriksaan di puskesmas, ya.";
     } else if (zIMTU <= 1) {
         statusGizi = "Gizi Baik (Normal)"; classGizi = "status-normal";
-        interGizi = "Juknis Kemenkes: Proporsi berat terhadap tinggi badan sangat seimbang dan sehat. Rekomendasi: Jaga pola makan seimbang, kebersihan lingkungan, dan pantau rutin di Posyandu.";
+        interGizi = "Pertahankan kondisi luar biasa ini! Jaga kebersihan lingkungan, pastikan anak mencuci tangan sebelum makan agar tidak mudah sakit, dan rutin datang ke Posyandu setiap bulan.";
     } else if (zIMTU <= 2) {
         statusGizi = "Berisiko Gizi Lebih (Possible Risk of Overweight)"; classGizi = "status-warning";
-        interGizi = "Juknis Kemenkes: Waspadai tren kenaikan berat badan berlebih. Rekomendasi: Kurangi makanan ringan instan, hindari minuman manis berlebih, perbanyak aktivitas fisik aktif.";
+        interGizi = "Mulai kurangi pemberian makanan ringan yang manis, gurih, gorengan, atau minuman kemasan. Jika anak mengonsumsi susu formula, konsultasikan takarannya agar tidak berlebihan. Perbanyak aktivitas fisik seperti berlari atau bermain di luar rumah.";
     } else if (zIMTU <= 3) {
         statusGizi = "Gizi Lebih (Overweight)"; classGizi = "status-warning";
-        interGizi = "Juknis Kemenkes: Mengalami kelebihan berat badan. Rekomendasi: Konsultasikan pengaturan menu diet sehat anak bersama Ahli Gizi Puskesmas.";
+        interGizi = "Mulai kurangi pemberian makanan ringan yang manis, gurih, gorengan, atau minuman kemasan. Jika anak mengonsumsi susu formula, konsultasikan takarannya agar tidak berlebihan. Perbanyak aktivitas fisik seperti berlari atau bermain di luar rumah.";
     } else {
         statusGizi = "Obesitas (Obese)"; classGizi = "status-danger";
-        interGizi = "Juknis Kemenkes: Penumpukan lemak tubuh yang sangat tinggi. Rekomendasi: Diperlukan penanganan medis terpadu untuk mengontrol berat badan serta mencegah sindrom metabolik.";
+        interGizi = "Mohon konsultasikan menu harian anak bersama Ahli Gizi di Puskesmas. Jangan melakukan diet ketat sendiri tanpa pengawasan medis. Fokus utamanya adalah mengubah pola makan menjadi lebih sehat (banyak serat dan kurangi gula/tepung) serta meningkatkan aktivitas motorik anak demi mencegah masalah kesehatan di masa depan.";
     }
 
     // Masukkan data ke resume tampilan hasil
