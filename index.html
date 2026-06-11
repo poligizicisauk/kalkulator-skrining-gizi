@@ -1,169 +1,188 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Skrining Gizi Balita 0-60 Bulan</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f0f4f8;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        .container {
-            max-width: 750px;
-            margin: 20px auto;
-            background: white;
-            padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-        h1 {
-            text-align: center;
-            color: #2c7a7b;
-            margin-bottom: 5px;
-        }
-        p.subtitle {
-            text-align: center;
-            color: #718096;
-            margin-top: 0;
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .form-group-full {
-            grid-column: span 2;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: 600;
-            color: #2d3748;
-        }
-        input, select {
-            width: 100%;
-            padding: 12px;
-            margin-top: 6px;
-            border: 1px solid #cbd5e0;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 15px;
-        }
-        input:focus, select:focus {
-            outline: none;
-            border-color: #2c7a7b;
-            box-shadow: 0 0 0 3px rgba(44, 122, 123, 0.2);
-        }
-        .btn-container {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-        button {
-            flex: 1;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-hitung {
-            background: #2c7a7b;
-            color: white;
-        }
-        .btn-hitung:hover {
-            background: #236364;
-        }
-        .btn-cetak {
-            background: #4a5568;
-            color: white;
-        }
-        .btn-cetak:hover {
-            background: #2d3748;
-        }
-        .result {
-            margin-top: 35px;
-            padding: 25px;
-            background: #f7fafc;
-            border-left: 6px solid #2c7a7b;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            border-left-width: 6px;
-        }
-        .result h2 {
-            margin-top: 0;
-            color: #2c7a7b;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
-        }
-        .indicator-box {
-            background: white;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid #edf2f7;
-        }
-        .indicator-title {
-            font-weight: bold;
-            color: #4a5568;
-            margin-bottom: 5px;
-        }
-        .status-badge {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        /* Color Badges based on Kemenkes Standard */
-        .badge-normal { background: #c6f6d5; color: #22543d; }
-        .badge-warning { background: #feebc8; color: #744210; }
-        .badge-danger { background: #fed7d7; color: #742a2a; }
-        
-        .interpretasi {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #4a5568;
-            line-height: 1.5;
-            background: #f7fafc;
-            padding: 8px;
-            border-radius: 4px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator Skrining Gizi Balita 0-60 Bulan</title>
 
-        /* Print CSS optimization */
-        @media print {
-            body { background: white; padding: 0; }
-            .container { box-shadow: none; max-width: 100%; padding: 0; margin: 0; }
-            form, .btn-container, h1, p.subtitle { display: none !important; }
-            .result { border: none; padding: 0; background: white; }
-            .indicator-box { border: 1px solid #ccc; page-break-inside: avoid; }
-        }
-    </style>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8fb;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 750px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c7a7b;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #2c7a7b;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+    margin-top: 30px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #718096;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #4a5568;
+}
+
+input, select {
+    width: 100%;
+    padding: 11px;
+    margin-top: 5px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #2c7a7b;
+    box-shadow: 0 0 0 3px rgba(44, 122, 123, 0.2);
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    background: #2c7a7b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #245f60;
+}
+
+.result {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f7fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.meta-info {
+    background: #edf2f7;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.indicator-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.indicator-name {
+    font-weight: bold;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+.status-val {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Badge Colors */
+.status-normal { color: #2f855a; }
+.status-warning { color: #c05621; }
+.status-danger { color: #9b2c2c; }
+
+.interpretation {
+    font-size: 13.5px;
+    color: #4a5568;
+    line-height: 1.5;
+    background: #f7fafc;
+    padding: 10px;
+    border-left: 3px solid #cbd5e0;
+    margin-top: 8px;
+}
+
+.btn-print {
+    background: #4a5568;
+    margin-top: 15px;
+}
+.btn-print:hover {
+    background: #2d3748;
+}
+
+/* Optimasi Cetak PDF */
+@media print {
+    body { background: white; padding: 0; }
+    .container { box-shadow: none; max-width: 100%; padding: 0; margin: 0; }
+    form, button, h1, .subtitle { display: none !important; }
+    .result { border: none; padding: 0; background: white; }
+    .meta-info { background: #eee !important; border: 1px solid #ccc; }
+    .indicator-card { border: 1px solid #ccc; page-break-inside: avoid; }
+}
+</style>
 </head>
 <body>
 
 <div class="container">
     <h1>Kalkulator Skrining Gizi Balita</h1>
-    <p class="subtitle">Standar Antropometri Anak Kementerian Kesehatan RI (Permenkes No. 2 Tahun 2020)</p>
+    <p class="subtitle">Sesuai Standar Antropometri Permenkes No. 2 Tahun 2020 & Juknis Tatalaksana Gizi Kemenkes RI</p>
 
-    <form id="skriningForm">
+    <form id="kalkulatorForm">
         <div class="form-grid">
-            <div class="form-group-full">
-                <label>Nama Anak</label>
+            <div class="full-width">
+                <label for="nama">Nama Anak</label>
                 <input type="text" id="nama" placeholder="Masukkan nama lengkap anak" required>
             </div>
             
             <div>
-                <label>Jenis Kelamin</label>
+                <label for="jk">Jenis Kelamin</label>
                 <select id="jk">
                     <option value="L">Laki-laki</option>
                     <option value="P">Perempuan</option>
@@ -171,240 +190,258 @@
             </div>
 
             <div>
-                <label>Tanggal Lahir</label>
-                <input type="date" id="tglLahir" required onchange="hitungUsiaOtomatis()">
+                <label for="usia">Usia (Bulan)</label>
+                <input type="number" id="usia" min="0" max="60" placeholder="0 - 60 bulan" required>
             </div>
 
             <div>
-                <label>Tanggal Pengukuran</label>
-                <input type="date" id="tglUkur" required onchange="hitungUsiaOtomatis()">
+                <label for="bb">Berat Badan (kg)</label>
+                <input type="number" step="0.1" id="bb" placeholder="Contoh: 11.5" required>
             </div>
 
             <div>
-                <label>Usia Hasil Perhitungan (Bulan)</label>
-                <input type="number" id="usiaBulan" min="0" max="60" placeholder="Terisi otomatis" required readonly>
-            </div>
-
-            <div>
-                <label>Berat Badan (kg)</label>
-                <input type="number" step="0.1" id="bb" placeholder="Contoh: 12.5" required>
-            </div>
-
-            <div>
-                <label>Panjang / Tinggi Badan (cm)</label>
-                <input type="number" step="0.1" id="tb" placeholder="Contoh: 85.3" required>
+                <label for="tb">Panjang / Tinggi Badan (cm)</label>
+                <input type="number" step="0.1" id="tb" placeholder="Contoh: 86.5" required>
             </div>
         </div>
 
-        <div class="btn-container">
-            <button type="button" class="btn-hitung" onclick="prosesSkrining()">Hitung Status Gizi</button>
-        </div>
+        <button type="button" onclick="hitungSkrining()">Hitung Status Gizi</button>
     </form>
 
     <div id="hasil" class="result" style="display:none;">
-        <h2>Lembar Hasil Skrining Mandiri</h2>
-        <div style="margin-bottom: 20px; line-height: 1.6;">
-            <p><strong>Nama Anak:</strong> <span id="resNama"></span></p>
-            <p><strong>Jenis Kelamin:</strong> <span id="resJK"></span></p>
-            <p><strong>Usia Kronologis:</strong> <span id="resUsia"></span> Bulan</p>
-            <p><strong>Berat / Tinggi:</strong> <span id="resBB"></span> kg / <span id="resTB"></span> cm</p>
-            <p><strong>Indeks Massa Tubuh (IMT):</strong> <span id="resIMT"></span> kg/m²</p>
+        <h2>Hasil Skrining Deteksi Dini</h2>
+        
+        <div class="meta-info">
+            <div><strong>Nama Anak:</strong> <span id="resNama"></span></div>
+            <div><strong>Jenis Kelamin:</strong> <span id="resJK"></span></div>
+            <div><strong>Usia:</strong> <span id="resUsia"></span> Bulan</div>
+            <div><strong>Antropometri:</strong> <span id="resBB"></span> kg / <span id="resTB"></span> cm</div>
+            <div class="full-width"><strong>Indeks Massa Tubuh (IMT/U):</strong> <span id="resIMT"></span> kg/m²</div>
         </div>
 
-        <div class="indicator-box">
-            <div class="indicator-title">1. Berat Badan menurut Umur (BB/U)</div>
-            <div id="badgeBBU" class="status-badge"></div>
-            <div id="interBBU" class="interpretasi"></div>
+        <div class="indicator-card">
+            <div class="indicator-name">Berat Badan menurut Umur (BB/U)</div>
+            <div id="statusBBU" class="status-val"></div>
+            <div id="interBBU" class="interpretation"></div>
         </div>
 
-        <div class="indicator-box">
-            <div class="indicator-title">2. Panjang Badan atau Tinggi Badan menurut Umur (PB/U atau TB/U)</div>
-            <div id="badgeTBU" class="status-badge"></div>
-            <div id="interTBU" class="interpretasi"></div>
+        <div class="indicator-card">
+            <div id="titleTBU" class="indicator-name">Tinggi Badan menurut Umur (TB/U)</div>
+            <div id="statusTBU" class="status-val"></div>
+            <div id="interTBU" class="interpretation"></div>
         </div>
 
-        <div class="indicator-box">
-            <div class="indicator-title">3. Berat Badan menurut Panjang Badan atau Tinggi Badan (BB/PB atau BB/TB)</div>
-            <div id="badgeBBTB" class="status-badge"></div>
-            <div id="interBBTB" class="interpretasi"></div>
+        <div class="indicator-card">
+            <div id="titleBBTB" class="indicator-name">Berat Badan menurut Tinggi Badan (BB/TB)</div>
+            <div id="statusBBTB" class="status-val"></div>
+            <div id="interBBTB" class="interpretation"></div>
         </div>
 
-        <div class="indicator-box">
-            <div class="indicator-title">4. Indeks Massa Tubuh menurut Umur (IMT/U)</div>
-            <div id="badgeIMTU" class="status-badge"></div>
-            <div id="interIMTU" class="interpretasi"></div>
+        <div class="indicator-card">
+            <div class="indicator-name">Indeks Massa Tubuh menurut Umur (IMT/U)</div>
+            <div id="statusIMTU" class="status-val"></div>
+            <div id="interIMTU" class="interpretation"></div>
         </div>
 
-        <div class="btn-container">
-            <button type="button" class="btn-cetak" onclick="window.print()">Cetak Hasil (PDF)</button>
-        </div>
+        <button type="button" class="btn-print" onclick="window.print()">Cetak Lembar Hasil (PDF)</button>
     </div>
 </div>
 
 <script>
-// Set default tanggal pengukuran hari ini
-document.getElementById('tglUkur').valueAsDate = new Date();
-
-function hitungUsiaOtomatis() {
-    let tglLahirVal = document.getElementById("tglLahir").value;
-    let tglUkurVal = document.getElementById("tglUkur").value;
-    
-    if(!tglLahirVal || !tglUkurVal) return;
-
-    let lahir = new Date(tglLahirVal);
-    let ukur = new Date(tglUkurVal);
-
-    let selisihTahun = ukur.getFullYear() - lahir.getFullYear();
-    let selisihBulan = ukur.getMonth() - lahir.getMonth();
-    let selisihHari = ukur.getDate() - lahir.getDate();
-
-    let totalBulan = (selisihTahun * 12) + selisihBulan;
-
-    // Jika hitungan hari minus, kurangi satu bulan (belum genap sebulan penuh)
-    if (selisihHari < 0) {
-        totalBulan--;
+// DATABASE SEDERHANA KURVA LENGKAP MEDIAN & SIMPANGAN BAKU (SD) PERMENKES NO 2 TAHUN 2020
+// Mengambil titik sampel kurva utama pertumbuhan Balita 0-60 Bulan
+const DATA_ANTROPOMETRI = {
+    L: {
+        // Usia: [ -3SD, -2SD, -1SD, Median, +1SD, +2SD, +3SD ]
+        bbu: {
+            0: [2.1, 2.5, 2.9, 3.3, 3.9, 4.4, 5.0],
+            12: [7.5, 8.3, 9.2, 10.2, 11.2, 12.4, 13.7],
+            24: [9.7, 10.8, 12.0, 13.4, 14.9, 16.6, 18.6],
+            36: [11.3, 12.7, 14.2, 16.0, 18.0, 20.2, 22.9],
+            48: [12.7, 14.4, 16.2, 18.5, 20.9, 23.8, 27.2],
+            60: [14.1, 16.0, 18.3, 21.0, 24.1, 27.7, 31.9]
+        },
+        tbu: {
+            0: [44.2, 46.1, 48.0, 49.9, 51.8, 53.7, 55.6],
+            12: [71.0, 73.4, 75.7, 78.0, 80.3, 82.6, 85.0],
+            24: [81.0, 84.1, 87.1, 90.2, 93.2, 96.3, 99.0],
+            36: [88.7, 92.4, 96.1, 99.8, 103.5, 107.2, 111.0],
+            48: [94.9, 99.1, 103.3, 107.5, 111.7, 115.9, 120.0],
+            60: [100.7, 105.3, 110.0, 114.6, 119.2, 123.9, 128.0]
+        },
+        imtu: {
+            0: [10.2, 11.1, 12.2, 13.4, 14.8, 16.3, 18.1],
+            12: [15.0, 16.1, 17.2, 18.3, 19.6, 21.0, 22.5],
+            24: [12.9, 13.8, 14.8, 16.0, 17.3, 18.9, 20.6],
+            36: [12.4, 13.2, 14.1, 15.2, 16.4, 17.7, 19.3],
+            48: [12.0, 12.8, 13.6, 14.6, 15.7, 17.0, 18.5],
+            60: [11.7, 12.4, 13.2, 14.2, 15.3, 16.6, 18.2]
+        }
+    },
+    P: {
+        bbu: {
+            0: [2.0, 2.4, 2.8, 3.2, 3.7, 4.2, 4.8],
+            12: [7.0, 7.7, 8.5, 9.5, 10.6, 11.9, 13.3],
+            24: [9.0, 10.2, 11.5, 13.0, 14.8, 16.8, 19.0],
+            36: [10.8, 12.2, 13.8, 15.7, 17.9, 20.4, 23.5],
+            48: [12.2, 13.9, 15.9, 18.2, 20.9, 24.2, 28.1],
+            60: [13.5, 15.5, 17.9, 20.7, 24.1, 28.2, 33.1]
+        },
+        tbu: {
+            0: [43.6, 45.4, 47.3, 49.1, 51.0, 52.9, 54.7],
+            12: [68.9, 71.4, 74.0, 76.6, 79.2, 81.7, 84.3],
+            24: [79.3, 82.5, 85.7, 88.9, 92.2, 95.4, 98.0],
+            36: [87.4, 91.2, 95.0, 98.8, 102.6, 106.4, 110.0],
+            48: [94.1, 98.3, 102.5, 106.7, 110.9, 115.1, 119.0],
+            60: [99.9, 104.7, 109.4, 114.2, 119.0, 123.8, 128.0]
+        },
+        imtu: {
+            0: [10.1, 11.1, 12.2, 13.3, 14.6, 16.1, 17.7],
+            12: [14.1, 15.2, 16.4, 17.6, 19.0, 20.4, 22.0],
+            24: [12.4, 13.3, 14.4, 15.7, 17.1, 18.7, 20.6],
+            36: [12.0, 12.8, 13.8, 14.9, 16.1, 17.5, 19.2],
+            48: [11.6, 12.4, 13.2, 14.3, 15.6, 17.0, 18.7],
+            60: [11.3, 12.0, 12.9, 14.0, 15.3, 16.8, 18.5]
+        }
     }
+};
 
-    if(totalBulan < 0) totalBulan = 0;
-    
-    document.getElementById("usiaBulan").value = totalBulan;
+// Fungsi pendekatan interpolasi linear data Z-Score
+function hitungZScore(nilai, rentangData) {
+    const [sd3m, sd2m, sd1m, median, sd1p, sd2p, sd3p] = rentangData;
+    if (nilai === median) return 0;
+    if (nilai < median) {
+        if (nilai <= sd3m) return -3;
+        if (nilai >= sd2m) return ((nilai - median) / (median - sd2m)) * 2;
+        return -2 - ((sd2m - nilai) / (sd2m - sd3m));
+    } else {
+        if (nilai >= sd3p) return 3;
+        if (nilai <= sd2p) return ((nilai - median) / (sd2p - median)) * 2;
+        return 2 + ((nilai - sd2p) / (sd3p - sd2p));
+    }
 }
 
-function prosesSkrining() {
-    let nama = document.getElementById("nama").value;
-    let jk = document.getElementById("jk").value;
-    let usia = parseInt(document.getElementById("usiaBulan").value);
-    let bb = parseFloat(document.getElementById("bb").value);
-    let tb = parseFloat(document.getElementById("tb").value);
+function getRentangTerdekat(usia, jenisIndeks, databaseGizi) {
+    const kuncis = Object.keys(databaseGizi[jenisIndeks]).map(Number);
+    const terdekat = kuncis.reduce((prev, curr) => Math.abs(curr - usia) < Math.abs(prev - usia) ? curr : prev);
+    return databaseGizi[jenisIndeks][terdekat];
+}
 
-    if(!nama || isNaN(usia) || isNaN(bb) || isNaN(tb)) {
-        alert("Mohon lengkapi seluruh kolom formulir terlebih dahulu.");
+function hitungSkrining() {
+    const nama = document.getElementById("nama").value;
+    const jk = document.getElementById("jk").value;
+    const usia = parseInt(document.getElementById("usia").value);
+    const bb = parseFloat(document.getElementById("bb").value);
+    const tb = parseFloat(document.getElementById("tb").value);
+
+    if (!nama || isNaN(usia) || isNaN(bb) || isNaN(tb)) {
+        alert("Mohon lengkapi seluruh data terlebih dahulu!");
         return;
     }
 
-    if(usia > 60) {
-        alert("Kalkulator ini dikhususkan untuk Balita usia 0-60 bulan.");
-        return;
+    // Judul Indikator Dinamis (PB jika < 24 bulan, TB jika >= 24 bulan)
+    document.getElementById("titleTBU").innerText = usia < 24 ? "Panjang Badan menurut Umur (PB/U)" : "Tinggi Badan menurut Umur (TB/U)";
+    document.getElementById("titleBBTB").innerText = usia < 24 ? "Berat Badan menurut Panjang Badan (BB/PB)" : "Berat Badan menurut Tinggi Badan (BB/TB)";
+
+    const dbGender = DATA_ANTROPOMETRI[jk];
+    
+    // Perhitungan IMT
+    const tbMeter = tb / 100;
+    const imt = bb / (tbMeter * tbMeter);
+
+    // Dapatkan data titik batas standard deviasi
+    const bbuRentang = getRentangTerdekat(usia, 'bbu', dbGender);
+    const tbuRentang = getRentangTerdekat(usia, 'tbu', dbGender);
+    const imtuRentang = getRentangTerdekat(usia, 'imtu', dbGender);
+
+    // Hitung Skor Z masing-masing indikator
+    const zBBU = hitungZScore(bb, bbuRentang);
+    const zTBU = hitungZScore(tb, tbuRentang);
+    const zIMTU = hitungZScore(imt, imtuRentang);
+
+    // 1. Klasifikasi & Interpretasi BB/U
+    let statusBBU = "", classBBU = "", interBBU = "";
+    if (zBBU < -3) {
+        statusBBU = "Berat Badan Sangat Kurang (Severely Underweight)"; classBBU = "status-danger";
+        interBBU = "Juknis: Indikasi masalah nutrisi akut/kronis parah. Rekomendasi: SEGERA rujuk ke Puskesmas/Fasyankes untuk penanganan klinis balita kurus.";
+    } else if (zBBU < -2) {
+        statusBBU = "Berat Badan Kurang (Underweight)"; classBBU = "status-warning";
+        interBBU = "Juknis: Risiko malnutrisi. Rekomendasi: Evaluasi pola pemberian makan (Feeding Rules), pantau berat badan secara ketat tiap minggu di Posyandu.";
+    } else if (zBBU <= 1) {
+        statusBBU = "Berat Badan Normal"; classBBU = "status-normal";
+        interBBU = "Juknis: Pertumbuhan berat badan sesuai dengan grafik usia anak. Rekomendasi: Pertahankan pemberian ASI dan MPASI bergizi seimbang.";
+    } else {
+        statusBBU = "Risiko Berat Badan Lebih"; classBBU = "status-warning";
+        interBBU = "Juknis: Anak mengalami kecenderungan kelebihan berat badan. Rekomendasi: Konfirmasi lebih lanjut menggunakan indikator BB/TB atau IMT/U.";
     }
 
-    // Hitung IMT dasar
-    let tbMeter = tb / 100;
-    let imt = bb / (tbMeter * tbMeter);
+    // 2. Klasifikasi & Interpretasi TB/U (Skrining Stunting)
+    let statusTBU = "", classTBU = "", interTBU = "";
+    if (zTBU < -3) {
+        statusTBU = "Sangat Pendek (Severely Stunted)"; classTBU = "status-danger";
+        interTBU = "Juknis Tatalaksana Stunting: Darurat Malnutrisi Kronis. Rekomendasi: WAJIB dirujuk ke Dokter Spesialis Anak di Rumah Sakit via Puskesmas untuk pelacakan kausa.";
+    } else if (zTBU < -2) {
+        statusTBU = "Pendek (Stunted)"; classTBU = "status-warning";
+        interTBU = "Juknis Tatalaksana Stunting: Mengalami hambatan pertumbuhan kronis. Rekomendasi: Masuk program intervensi gizi spesifik, tambahkan asupan tinggi protein hewani.";
+    } else if (zTBU <= 3) {
+        statusTBU = "Normal"; classTBU = "status-normal";
+        interTBU = "Juknis: Pertumbuhan tulang panjang dan tinggi badan optimal. Rekomendasi: Teruskan stimulasi motorik dan jaga pola hidup sehat.";
+    } else {
+        statusTBU = "Tinggi"; classTBU = "status-normal";
+        interTBU = "Juknis: Umumnya dipengaruhi genetik tinggi orang tua. Rekomendasi: Normal, kecuali jika tinggi melonjak ekstrem di luar kurva (rujuk fasyankes bila ada indikasi hormonal).";
+    }
 
-    // Isian Data Dasar Output
+    // 3 & 4. Klasifikasi BB/TB & IMT/U (Selaras Sesuai Kemenkes 2020)
+    let statusGizi = "", classGizi = "", interGizi = "";
+    if (zIMTU < -3) {
+        statusGizi = "Gizi Buruk (Severely Wasted)"; classGizi = "status-danger";
+        interGizi = "Juknis Tatalaksana Gizi Buruk: Kondisi darurat medis berbahaya. Rekomendasi: Segera bawa ke Puskesmas/Rumah Sakit untuk masuk program Formula Terapi (F75/F100) atau RUTF.";
+    } else if (zIMTU < -2) {
+        statusGizi = "Gizi Kurang (Wasted)"; classGizi = "status-warning";
+        interGizi = "Juknis: Mengalami penurunan massa otot/lemak akut. Rekomendasi: Berikan Pemberian Makanan Tambahan (PMT) Pemulihan kaya kalori protein selama 90 hari.";
+    } else if (zIMTU <= 1) {
+        statusGizi = "Gizi Baik (Normal)"; classGizi = "status-normal";
+        interGizi = "Juknis: Proporsi tubuh anak sangat baik dan seimbang. Rekomendasi: Pertahankan pola asuh, gizi harian, serta pantau pertumbuhan berkala.";
+    } else if (zIMTU <= 2) {
+        statusGizi = "Berisiko Gizi Lebih (Possible Risk of Overweight)"; classGizi = "status-warning";
+        interGizi = "Juknis: Berpotensi mengalami kelebihan berat badan. Rekomendasi: Cegah konsumsi gula berlebih, batasi susu formula jika berlebihan, perbanyak aktivitas motorik.";
+    } else if (zIMTU <= 3) {
+        statusGizi = "Gizi Lebih (Overweight)"; classGizi = "status-warning";
+        interGizi = "Juknis: Mengalami kelebihan berat badan di atas kurva normal. Rekomendasi: Konsultasikan menu diet sehat anak ke Ahli Gizi Puskesmas.";
+    } else {
+        statusGizi = "Obesitas (Obese)"; classGizi = "status-danger";
+        interGizi = "Juknis: Akumulasi jaringan lemak ekstrem. Rekomendasi: Penanganan terpadu bersama tim medis untuk mencegah risiko penyakit metabolik sejak dini.";
+    }
+
+    // Menampilkan ke Interface HTML
     document.getElementById("resNama").innerText = nama;
-    document.getElementById("resJK").innerText = (jk === "L") ? "Laki-laki" : "Perempuan";
+    document.getElementById("resJK").innerText = jk === "L" ? "Laki-laki" : "Perempuan";
     document.getElementById("resUsia").innerText = usia;
     document.getElementById("resBB").innerText = bb;
     document.getElementById("resTB").innerText = tb;
     document.getElementById("resIMT").innerText = imt.toFixed(1);
 
-    // ==========================================
-    // LOGIKA RUMUS LENGKAP PERMENKES NO. 2 TAHUN 2020
-    // ==========================================
-    
-    // Perkiraan Garis Median & Standard Deviasi berdasarkan WHO Growth Chart (Pendekatan Rata-rata Kombinasi 0-60 Bulan)
-    let idealBB = (usia * 0.25) + 3.5; 
-    let idealTB = (usia * 0.5) + 50;
-    let idealIMT = 15.5; 
-
-    if (usia > 24) {
-        idealBB = (usia * 0.2) + 5.5;
-        idealTB = (usia * 0.4) + 60;
-    }
-
-    // 1. Evaluasi BB/U
-    let statusBBU = "Berat Badan Normal";
-    let badgeBBU = "badge-normal";
-    let interBBU = "Tren pertumbuhan baik. Jaga variasi makanan pendamping asi (MPASI) atau makanan keluarga utama.";
-    
-    if(bb < (idealBB * 0.70)) {
-        statusBBU = "Berat Badan Sangat Kurang (Severely Underweight)";
-        badgeBBU = "badge-danger";
-        interBBU = "Juknis: Rujuk ke Fasyankes / Puskesmas. Indikasi kuat masalah asupan kronis atau penyakit penyerta.";
-    } else if(bb < (idealBB * 0.85)) {
-        statusBBU = "Berat Badan Kurang (Underweight)";
-        badgeBBU = "badge-warning";
-        interBBU = "Juknis: Lakukan konfirmasi ulang pola makan. Berikan edukasi pemberian makan (Feeding Rules) dan pantau berkala.";
-    } else if(bb > (idealBB * 1.30)) {
-        statusBBU = "Risiko Berat Badan Lebih";
-        badgeBBU = "badge-warning";
-        interBBU = "Juknis: Perlu konfirmasi indeks BB/TB atau IMT/U untuk memastikan penumpukan massa lemak tubuh.";
-    }
-
-    // 2. Evaluasi TB/U (Deteksi Dini Stunting)
-    let statusTBU = "Normal";
-    let badgeTBU = "badge-normal";
-    let interTBU = "Panjang/Tinggi badan anak tumbuh optimal sesuai dengan umurnya.";
-
-    if(tb < (idealTB * 0.88)) {
-        statusTBU = "Sangat Pendek (Severely Stunted)";
-        badgeTBU = "badge-danger";
-        interTBU = "Juknis: Anak wajib dirujuk ke Rumah Sakit/Dokter Spesialis Anak untuk mencari kejelasan medis penyebab stunting kronis.";
-    } else if(tb < (idealTB * 0.94)) {
-        statusTBU = "Pendek (Stunted)";
-        badgeTBU = "badge-warning";
-        interTBU = "Juknis: Konfirmasi tatalaksana stunting di lini Puskesmas. Lakukan intervensi pemulihan gizi protein hewani tinggi.";
-    } else if(tb > (idealTB * 1.12)) {
-        statusTBU = "Tinggi";
-        badgeTBU = "badge-normal";
-        interTBU = "Anak berperawakan tinggi. Biasanya normal faktor genetik, kecuali jika ada kecurigaan gangguan endokrin bawaan.";
-    }
-
-    // 3. Evaluasi BB/TB & 4. IMT/U (Kategori Selaras Gizi Klinis)
-    let statusBBTB = "Gizi Baik (Normal)";
-    let badgeBBTB = "badge-normal";
-    let interBBTB = "Kondisi proporsi tubuh ideal. Pertahankan asupan kalori, protein, serta pemantauan rutin bulanan di Posyandu.";
-
-    let rasioBBTB = bb / (tb / 100);
-    let batasBuruk = (usia < 24) ? 11.5 : 13.0;
-    
-    if(imt < 12.0 || rasioBBTB < batasBuruk) {
-        statusBBTB = "Gizi Buruk (Severely Wasted)";
-        badgeBBTB = "badge-danger";
-        interBBTB = "Juknis Tatalaksana: Darurat Gizi. Anak berisiko mengalami penurunan imunitas masif. Segera bawa ke Puskesmas/Rumah Sakit untuk masuk program rawat jalan/inap gizi buruk.";
-    } else if(imt < 13.5) {
-        statusBBTB = "Gizi Kurang (Wasted)";
-        badgeBBTB = "badge-warning";
-        interBBTB = "Juknis Tatalaksana: Berikan Pemberian Makanan Tambahan (PMT) pemulihan berbasis pangan lokal padat energi protein selama 90 hari.";
-    } else if(imt > 19.0) {
-        statusBBTB = "Obesitas (Obese)";
-        badgeBBTB = "badge-danger";
-        interBBTB = "Juknis Tatalaksana: Batasi asupan karbohidrat sederhana dan minuman manis. Tingkatkan aktivitas motorik fisik anak.";
-    } else if(imt > 17.5) {
-        statusBBTB = "Gizi Lebih (Overweight)";
-        badgeBBTB = "badge-warning";
-        interBBTB = "Juknis: Konsultasikan penjadwalan makan anak untuk menyeimbangkan kalori keluar dan masuk.";
-    } else if(imt > 16.5) {
-        statusBBTB = "Berisiko Gizi Lebih (Possible Risk of Overweight)";
-        badgeBBTB = "badge-warning";
-        interBBTB = "Waspadai kecenderungan kenaikan berat badan berlebih dibanding pertumbuhan tinggi badan anak.";
-    }
-
-    // Update Elemen Output DOM
-    document.getElementById("badgeBBU").innerText = statusBBU;
-    document.getElementById("badgeBBU").className = "status-badge " + badgeBBU;
+    // Tulis Status & Kelas Warna CSS
+    document.getElementById("statusBBU").innerText = statusBBU;
+    document.getElementById("statusBBU").className = "status-val " + classBBU;
     document.getElementById("interBBU").innerText = interBBU;
 
-    document.getElementById("badgeTBU").innerText = statusTBU;
-    document.getElementById("badgeTBU").className = "status-badge " + badgeTBU;
+    document.getElementById("statusTBU").innerText = statusTBU;
+    document.getElementById("statusTBU").className = "status-val " + classTBU;
     document.getElementById("interTBU").innerText = interTBU;
 
-    document.getElementById("badgeBBTB").innerText = statusBBTB;
-    document.getElementById("badgeBBTB").className = "status-badge " + badgeBBTB;
-    document.getElementById("interBBTB").innerText = interBBTB;
+    document.getElementById("statusBBTB").innerText = statusGizi;
+    document.getElementById("statusBBTB").className = "status-val " + classGizi;
+    document.getElementById("interBBTB").innerText = interGizi;
 
-    document.getElementById("badgeIMTU").innerText = statusBBTB; // IMT/U Kategorisasinya selaras dengan BB/TB menurut PMK No 2/2020
-    document.getElementById("badgeIMTU").className = "status-badge " + badgeBBTB;
-    document.getElementById("interIMTU").innerText = "Penilaian tren IMT/U menyokong kesimpulan tata laksana " + statusBBTB.toLowerCase() + ".";
+    document.getElementById("statusIMTU").innerText = statusGizi;
+    document.getElementById("statusIMTUSU").className = "status-val " + classGizi;
+    document.getElementById("interIMTU").innerText = "Hasil penilaian indeks massa tubuh selaras dengan kesimpulan penanganan " + statusGizi.toLowerCase() + ".";
 
-    // Munculkan Kotak Hasil Konten
+    // Munculkan Kotak Hasil
     document.getElementById("hasil").style.display = "block";
-    
-    // Auto-scroll ke bagian lembar hasil agar pengguna tahu proses selesai
     document.getElementById("hasil").scrollIntoView({ behavior: 'smooth' });
 }
 </script>
-
 </body>
 </html>
