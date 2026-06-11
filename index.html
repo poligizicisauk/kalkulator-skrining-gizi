@@ -395,22 +395,22 @@ function hitungSkrining() {
     let statusGizi = "", classGizi = "", interGizi = "";
     if (zIMTU < -3) {
         statusGizi = "Gizi Buruk (Severely Wasted)"; classGizi = "status-danger";
-        interGizi = "Jangan panik, namun segera bawa anak ke Puskesmas atau Rumah Sakit hari ini juga. Anak membutuhkan penanganan khusus (seperti rawat inap gizi atau makanan formula terapi F75/F100/RUTF) karena daya tahan tubuhnya sedang sangat lemah.";
+        interGizi = "Ini adalah tanda bahaya medis. Jangan ditunda, segera bawa anak ke Puskesmas atau Rumah Sakit agar mendapatkan perawatan intensif dan asupan nutrisi khusus medis untuk memulihkan kekebalan tubuhnya.";
     } else if (zIMTU < -2) {
         statusGizi = "Gizi Kurang (Wasted)"; classGizi = "status-warning";
-        interGizi = "Segera periksa ke Poli Gizi Puskesmas untuk dilakukan pemeriksaan lebih lanjut. Anak juga masuk kategori untuk mendapatkan makanan tambahan (PMT) pemulihan yang padat energi dan protein (disediakan oleh Puskesmas selama 56 hari, sesuai dengan ketersediaan). Jangan tunda pemeriksaan di puskesmas, ya.";
+        interGizi = "Konsultasikan ke fasilitas kesehatan untuk mendapatkan bimbingan gizi dan Pemberian Makanan Tambahan (PMT) Pemulihan. Di rumah, perbaiki porsi makanan utama anak agar lebih padat kalori serta pastikan anak tidak sedang mengalami infeksi (seperti cacingan atau batuk lama) yang menyedot nutrisinya.";
     } else if (zIMTU <= 1) {
         statusGizi = "Gizi Baik (Normal)"; classGizi = "status-normal";
-        interGizi = "Pertahankan kondisi luar biasa ini! Jaga kebersihan lingkungan, pastikan anak mencuci tangan sebelum makan agar tidak mudah sakit, dan rutin datang ke Posyandu setiap bulan.";
+        interGizi = "Kerja bagus! Pertahankan pola asuh dan menu gizi seimbang yang sudah berjalan. Teruskan pemantauan berkala di Posyandu setiap bulan agar tren sehat ini tetap terjaga hingga anak lulus usia balita.";
     } else if (zIMTU <= 2) {
         statusGizi = "Berisiko Gizi Lebih (Possible Risk of Overweight)"; classGizi = "status-warning";
-        interGizi = "Mulai kurangi pemberian makanan ringan yang manis, gurih, gorengan, atau minuman kemasan. Jika anak mengonsumsi susu formula, konsultasikan takarannya agar tidak berlebihan. Perbanyak aktivitas fisik seperti berlari atau bermain di luar rumah.";
+        interGizi = "Mulai batasi jajanan atau makanan ringan instan (seperti ciki, biskuit tinggi gula, atau es krim). Dorong anak untuk lebih aktif bergerak, seperti bermain di luar rumah, menari, atau berjalan kaki agar kalori yang masuk tidak menumpuk menjadi lemak.";
     } else if (zIMTU <= 3) {
         statusGizi = "Gizi Lebih (Overweight)"; classGizi = "status-warning";
-        interGizi = "Mulai kurangi pemberian makanan ringan yang manis, gurih, gorengan, atau minuman kemasan. Jika anak mengonsumsi susu formula, konsultasikan takarannya agar tidak berlebihan. Perbanyak aktivitas fisik seperti berlari atau bermain di luar rumah.";
+        interGizi = "Gantilah camilan anak dengan buah-buahan atau sayuran segar. Jika anak masih mengonsumsi susu formula atau susu UHT, kurangi frekuensinya atau konsultasikan takarannya dengan petugas kesehatan agar tidak berlebihan menyumbang kalori harian.. Perbanyak aktivitas fisik seperti berlari atau bermain di luar rumah.";
     } else {
         statusGizi = "Obesitas (Obese)"; classGizi = "status-danger";
-        interGizi = "Mohon konsultasikan menu harian anak bersama Ahli Gizi di Puskesmas. Jangan melakukan diet ketat sendiri tanpa pengawasan medis. Fokus utamanya adalah mengubah pola makan menjadi lebih sehat (banyak serat dan kurangi gula/tepung) serta meningkatkan aktivitas motorik anak demi mencegah masalah kesehatan di masa depan.";
+        interGizi = "Mohon konsultasikan menu makan harian anak secara terstruktur bersama Ahli Gizi di Puskesmas. Jangan memotong porsi makan anak secara ekstrem tanpa pengawasan medis. Fokus utamanya adalah memperbaiki kualitas makanan (kurangi tepung, gorengan, dan minuman manis) serta meningkatkan aktivitas motorik anak demi mencegah risiko penyakit gula (diabetes) sejak dini.";
     }
 
     // Masukkan data ke resume tampilan hasil
