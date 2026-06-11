@@ -331,6 +331,7 @@ function hitungSkrining() {
     const bb = parseFloat(document.getElementById("bb").value);
     const tb = parseFloat(document.getElementById("tb").value);
 
+    // Validasi input wajib terisi
     if (!nama || isNaN(usia) || isNaN(bb) || isNaN(tb)) {
         alert("Mohon lengkapi seluruh kolom data terlebih dahulu!");
         return;
@@ -347,7 +348,7 @@ function hitungSkrining() {
 
     const dbGender = DATA_ANTROPOMETRI[jk];
     
-    // Rumus IMT
+    // Rumus IMT Utama
     const tbMeter = tb / 100;
     const imt = bb / (tbMeter * tbMeter);
 
@@ -395,10 +396,10 @@ function hitungSkrining() {
     let statusGizi = "", classGizi = "", interGizi = "";
     if (zIMTU < -3) {
         statusGizi = "Gizi Buruk (Severely Wasted)"; classGizi = "status-danger";
-        interGizi = "Juknis Anak Gizi Buruk: Kondisi darurat medis. Kriteria diagnosis gizi buruk menggunakan BB/PB atau BB/TB. Rekomendasi: Segera bawa ke Puskesmas/Rumah Sakit untuk masuk program rawat inap/jalan terapi pangan RUTF atau Formula F75/F100.";
+        interGizi = "Anak menderita Gizi Buruk mendasar BB/PB atau BB/TB (Kondisi darurat medis). Rekomendasi: Segera bawa ke Puskesmas/Rumah Sakit untuk masuk program rawat inap/jalan terapi pangan RUTF atau Formula F75/F100.";
     } else if (zIMTU < -2) {
         statusGizi = "Gizi Kurang (Wasted)"; classGizi = "status-warning";
-        interGizi = "Juknis Kemenkes: Mengalami penurunan massa otot/lemak akut. Rekomendasi: Berikan makanan padat energi tinggi protein, berikan PMT Pemulihan selama 90 hari, dan obati penyakit penyerta jika ada.";
+        interGizi = "Juknis Kemenkes: Mengalami penurunan massa otot/lemak akut (Wasted). Rekomendasi: Berikan makanan padat energi tinggi protein, berikan PMT Pemulihan selama 90 hari, dan obati penyakit penyerta jika ada.";
     } else if (zIMTU <= 1) {
         statusGizi = "Gizi Baik (Normal)"; classGizi = "status-normal";
         interGizi = "Juknis Kemenkes: Proporsi berat terhadap tinggi badan sangat seimbang dan sehat. Rekomendasi: Jaga pola makan seimbang, kebersihan lingkungan, dan pantau rutin di Posyandu.";
@@ -407,10 +408,10 @@ function hitungSkrining() {
         interGizi = "Juknis Kemenkes: Waspadai tren kenaikan berat badan berlebih. Rekomendasi: Kurangi makanan ringan instan, hindari minuman manis berlebih, perbanyak aktivitas fisik aktif.";
     } else if (zIMTU <= 3) {
         statusGizi = "Gizi Lebih (Overweight)"; classGizi = "status-warning";
-        interGizi = "Juknis Kemenkes: Mengalami kelebihan berat badan. Rekomendasi: Konsultasikan pengaturan menu diet sehat anak bersama Ahli Gizi Puskesmas.";
+        interGizi = "Juknis Kemenkes: Mengalami kelebihan berat badan (Overweight). Rekomendasi: Konsultasikan pengaturan menu diet sehat anak bersama Ahli Gizi Puskesmas.";
     } else {
         statusGizi = "Obesitas (Obese)"; classGizi = "status-danger";
-        interGizi = "Juknis Kemenkes: Penumpukan lemak tubuh yang sangat tinggi. Rekomendasi: Diperlukan penanganan medis terpadu untuk mengontrol berat badan serta mencegah sindrom metabolik.";
+        interGizi = "Juknis Kemenkes: Penumpukan lemak tubuh yang sangat tinggi (Obesitas). Rekomendasi: Diperlukan penanganan medis terpadu untuk mengontrol berat badan serta mencegah risiko metabolik.";
     }
 
     // Masukkan data ke resume tampilan hasil
@@ -434,11 +435,12 @@ function hitungSkrining() {
     document.getElementById("statusBBTB").className = "status-val " + classGizi;
     document.getElementById("interBBTB").innerText = interGizi;
 
+    // SINKRONISASI COCOK ID "statusIMTU"
     document.getElementById("statusIMTU").innerText = statusGizi;
     document.getElementById("statusIMTU").className = "status-val " + classGizi;
     document.getElementById("interIMTU").innerText = "Penilaian tren IMT/U menyokong kesimpulan tata laksana " + statusGizi.toLowerCase() + ".";
 
-    // MENAMPILKAN KOTAK HASIL (Sehingga tombol PDF sekarang aktif & bisa ditekan)
+    // MENAMPILKAN KOTAK HASIL
     document.getElementById("hasil").style.display = "block";
     document.getElementById("hasil").scrollIntoView({ behavior: 'smooth' });
 }
